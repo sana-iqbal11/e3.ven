@@ -12,7 +12,7 @@ function ContactForm() {
         event.preventDefault();
         try {
             setStatus('pending');
-            setError("");
+            setError("error");
             const myForm = event.target;
             const formData = new FormData(myForm);
             const res = await fetch('/__forms.html', {
@@ -44,72 +44,30 @@ function ContactForm() {
         <span className="text-orange">info@e3.ventures</span>
       </HeadingDescription>
 
-      <form className="flex flex-col gap-4" name="contact"  onSubmit={handleFormSubmit}>
-        <input type="hidden" name="form-name" value="contact" />
+      <form
+                    name="contact"
+                    onSubmit={handleFormSubmit}
+                    className="text-black flex flex-col gap-3 align-center"
+                >
+                    <input type="hidden" name="form-name" value="contact" />
                     <input name="name" type="text" placeholder="Name" required className="input input-bordered" />
                     <input name="email" type="text" placeholder="Email (optional)" className="input input-bordered" />
                     <input name="message" type="text" placeholder="Message" required className="input input-bordered" />
                     <button className="btn btn-primary" type="submit" disabled={status === 'pending'}>
                         Submit
                     </button>
+                    {status === 'ok' && (
+                        <div className="alert alert-success">
+                            Submitted!
+                        </div>
+                    )}
+                    {status === 'error' && (
+                        <div className="alert alert-error">
+                            {error}
+                        </div>
+                    )}
+                </form>
 
-{/* 
-        <div className="laptop:block hidden">
-          <TextField title="Name" placeholder="Your Name" type="text" name="name" />
-        </div>
-        <div className="laptop:hidden block">
-          <TextField title="First name" placeholder="First name" type="text" name="first-name" />
-        </div>
-        <div className="laptop:hidden block">
-          <TextField title="Last name" placeholder="Last name" type="text" name="last-name" />
-        </div>
-        <TextField title="Email" placeholder="you@company.com" type="email" name="email" />
-        <PhoneField title="Phone number" placeholder="Enter Phone Number" name="telephone" />
-        <label
-          htmlFor="message"
-          className="laptop:block mb-2 text-sm font-medium text-gray-900 dark:text-white  hidden"
-        >
-          How can we help?
-        </label>
-        <label
-          htmlFor="message"
-          className="laptop:hidden mb-2 text-sm font-medium text-gray-900 dark:text-white  block message"
-        >
-          Message
-        </label>
-        <textarea
-          id="message"
-          name="messages"
-          rows={4}
-          className="laptop:block hidden p-2.5 text-black focus:border-0 mt-[-16px] w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-          placeholder="Tell us a little about the project..."
-        ></textarea>
-        <textarea
-          id="message"
-          name="message"
-          rows={4}
-          className="laptop:hidden block p-2.5 text-black focus:border-0 mt-[-16px] w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 "
-        ></textarea>
-        <div className="flex items-center justify-center w-full mt-3">
-         
-          <button
-            className={`text-[16px] bg-[orange] hover:bg-lightOrange 
-            rounded-[8px] border-none p-[9px_20px] laptop:block hidden mb-[39px] 
-            laptop:mb-[30px] tracking-wide text-white font-normal w-full `}
-            type="submit"
-        >
-           Get Started
-        </button>
-          <button
-            className={`text-[16px] bg-[orange] hover:bg-lightOrange rounded-[8px] 
-            border-none p-[9px_20px] laptop:hidden block mb-[39px] laptop:mb-[30px] 
-            tracking-wide text-white font-normal w-full `}
-            type="submit"
-        >
-           Send message
-        </button>
-        </div>{" "} */}
-      </form>
     </div>
   );
 }
