@@ -175,7 +175,7 @@ const PhoneField = ({
         {title}
       </p>
       <div className="flex items-center rounded-lg bg-white">
-        <select id="country_code" className="border-0 bg-transparent  border-themeDarkGreen outline-none rounded-l-lg text-black text-sm">
+        <select id="country_code" onChange={onChange} name="country_code" value={value} className="border-0 bg-transparent  border-themeDarkGreen outline-none rounded-l-lg text-black text-sm">
           {countryCodes.map((country, index) => (
             <option key={index} value={country.code}>
               ({country.code})
