@@ -16,7 +16,9 @@ function ContactForm() {
         <span className="text-orange">info@e3.ventures</span>
       </HeadingDescription>
       
-      <form name="contact" method="POST" data-netlify="true">
+      <form name="contact" method="POST" data-netlify="true" className="flex gap-7 flex-col">
+      <input type="hidden" name="form-name" value="contact" />
+
       <p>
         <label htmlFor="name">Name</label>
         <input type="text" id="name" name="name" />
