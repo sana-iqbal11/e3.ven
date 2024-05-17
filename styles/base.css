@@ -1,0 +1,26 @@
+header, footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-container {
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.overlay-container.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-content {
+  transition: transform 0.3s ease;
+  transform: translateY(0);
+}
+
+.menu-content.hidden {
+  transform: translateY(-100%);
+}
+
+

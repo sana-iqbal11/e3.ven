@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Sora:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Sora:wght@600&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button:disabled {
+  background-color: gray;
+}
+
+.with-underline {
+  position: relative;
+}
+.with-underlines {
+  position: relative;
+}
+
+.with-underline::before {
+  content: url("../components/svg/underline-mobile.svg");
+  position: absolute;
+  height: 8px;
+  width: 195px;
+  transform: translateX(-112%);
+  bottom: 8px;
+  left: 112%;
+}
+.with-underlines::before {
+  content: url("../components/svg/with-underlines-mobile.svg");
+  position: absolute;
+  height: 8px;
+  width: 195px;
+  transform: translateX(-112%);
+  bottom: 8px;
+  left: 145%;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* laptop */
+@media screen and (min-width: 976px) {
+  .with-underline::before {
+    content: url("../components/svg/underline-laptop.svg");
+    width: 323px;
+    transform: translateX(-50%);
+    bottom: 35px;
+    left: 50%;
+  }
+  .with-underlines::before {
+    content: url("../components/svg/with-underlines.svg");
+    width: 323px;
+    transform: translateX(-50%);
+    bottom: 35px;
+    left: 53%;
+    margin-bottom: -1rem;
+
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+#svgs{
+  color:white;
+  filter:url(#round);
+}
+
+.hello::before {
+  content:"";
+  display:block;
+  padding-top:86.6%;
+  background:currentColor;
+ clip-path: polygon(0 0, 78% 0, 100% 17%, 100% 99%, 0 100%, 0% 50%);
+}
+
+.card{
+  display: none;
+}
+
+[type='text']:focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus {
+  --tw-ring-color: none;
+  --tw-ring-shadow: none
+}
+
+select:not([size]){
+  padding-right: 1.5rem;
+}
+.section-list-container {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.section-list-container ul {
+  transition: transform 0.3s ease-in-out;
+}
+
+.section-list-container ul.active {
+  transform: translateX(-100%);
+}
+.bg-linear{
+  background: var(--Fill, linear-gradient(137deg, rgba(27, 28, 54, 0.16) 23.98%, rgba(112, 113, 122, 0.16) 65.73%));
+}

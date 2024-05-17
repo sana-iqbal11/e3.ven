@@ -1,0 +1,54 @@
+section {
+  position: relative;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 0px 16px 64px 16px;
+}
+
+#bg {
+  position: absolute;
+  width: 100vw;
+  height: auto;
+  z-index: -1;
+}
+
+#intro {
+  background-image: linear-gradient(#00000000 70%, #020628), url("../public/images/home-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: top;
+  background-position-x: center;
+}
+
+#bg img {
+  width: 100%;
+  height: auto;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* laptop */
+@media screen and (min-width: 976px) {
+  section {
+    padding: 61px 0px;
+  }
+}
+
+#program-intro{
+  background: linear-gradient(90deg, rgba(3, 7, 43, 0.48) 0%, rgba(3, 7, 43, 0.30) 100%), url("../public/images/bg-process.png") lightgray 50% / cover no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: top;
+  background-position-x: center;
+}
+
+.program-section{
+  background: linear-gradient(0deg, #03072A 10.71%, rgba(3, 7, 42, 0.00) 100%);
+}
+
