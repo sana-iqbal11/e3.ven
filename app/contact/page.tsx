@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Header from "@/components/base/header";
 import ContactUs from "@/components/contact/ContactUs";
-import ContactForm from "@/components/contactForm";
+import ContactForm from "@/components/shared/contactForm";
 import React from "react";
 import Footer from "@/components/base/footer";
 

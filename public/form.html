@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netlify Form Test</title>
+</head>
+<body>
+    <form name="contact" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="contact" />
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+        </div>
+        <div>
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first_name" required />
+        </div>
+        <div>
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last_name" required />
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+        </div>
+        <div>
+            <label for="telephone">Phone Number</label>
+            <input type="tel" id="telephone" name="telephone" required />
+        </div>
+        
+        <div>
+            <label for="message"> How can we help?:</label>
+            <textarea id="message" name="messages" required></textarea>
+        </div>
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Send</button>
+    </form>
+</body>
+
+</html>
