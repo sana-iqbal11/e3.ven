@@ -32,11 +32,17 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     let deviceType = 'Desktop';
 
     if (/android/i.test(userAgent)) {
+      deviceType = "mobile";
       data.set("name", firstName + " " + lastName);
-      // data.set("messages", help_messages);
+      data.set("messages", help_messages + " ");
     } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
+      deviceType = "mobile";
       data.set("name", firstName + " " + lastName);
+    } 
+    if (deviceType === "Desktop"){
+      data.set("first_name" , Name?.toString()?.split(' ')[0] + " " )
     }
+
   await fetch("/form.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
