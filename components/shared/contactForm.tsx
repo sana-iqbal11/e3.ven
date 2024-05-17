@@ -13,6 +13,7 @@ function ContactForm() {
     telephone:"",
     messages: "",
     message: "",
+    country_code:""
 });
 
 const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
