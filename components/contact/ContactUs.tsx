@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
-import ContactForm from '../shared/contactForm'
+import ContactForm from '../contactForm'
 
 function ContactUs() {
   return (

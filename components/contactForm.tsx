@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import SectionTitle from "./sectionTitle";
-import ColoredSpan from "./coloredSpan";
-import HeadingDescription from "./headingDescription";
+import SectionTitle from "./shared/sectionTitle";
+import ColoredSpan from "./shared/coloredSpan";
+import HeadingDescription from "./shared/headingDescription";
 
 function ContactForm() {
   const [status, setStatus] = useState("");
@@ -15,7 +15,7 @@ function ContactForm() {
       setError("error");
       const myForm = event.target;
       const formData = new FormData(myForm);
-      const res = await fetch("../../public/__forms.html", {
+      const res = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData.toString()),
