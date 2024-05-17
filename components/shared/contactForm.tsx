@@ -26,14 +26,14 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   const data = new FormData(form);
   const firstName = data.get("first_name");
   const lastName = data.get("last_name");
-  const messages = data.get("message")
+  const help_messages = data.get("message");
   const Name = data.get("name");
   const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
     let deviceType = 'Desktop';
 
     if (/android/i.test(userAgent)) {
       data.set("name", firstName + " " + lastName);
-      data.set("messages", messages);
+      // data.set("messages", help_messages);
     } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
       data.set("name", firstName + " " + lastName);
     }
