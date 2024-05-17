@@ -37,7 +37,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     <div className="grid grid-cols-1 gap-5 place-content-center h-full lg:px-16 px-3">
       <SectionTitle className="lg:text-start text-center">
         <ColoredSpan className="text-white laptop:text-5xl text-3xl">
-          Let’s level up your brand, together
+          Let’s llevel up your brand, together
         </ColoredSpan>
       </SectionTitle>
       <HeadingDescription className="text-[16px] lg:text-start text-center mt-[-28px]">
