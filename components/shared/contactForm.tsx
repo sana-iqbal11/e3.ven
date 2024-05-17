@@ -24,7 +24,19 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
   const form = e.target as HTMLFormElement;
   const data = new FormData(form);
-  console.log(data)
+  const firstName = data.get("first_name");
+  const lastName = data.get("last_name");
+  const messages = data.get("message")
+  const Name = data.get("name");
+  const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+    let deviceType = 'Desktop';
+
+    if (/android/i.test(userAgent)) {
+      data.set("name", firstName + " " + lastName);
+      data.set("messages", messages);
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
+      data.set("name", firstName + " " + lastName);
+    }
   await fetch("/form.html", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -46,7 +58,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         <span className="text-orange">info@e3.ventures</span>
       </HeadingDescription>
 
-      <form className="flex flex-col gap-4" name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
+      <form className="flex flex-col gap-4" name="contact" method="POST" data-netlify="true"
+       onSubmit={handleSubmit}>
         <input type="hidden" name="form-name" value="contact" />
 
         <div className="laptop:block hidden">
