@@ -1,9 +1,37 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 import SectionTitle from "./sectionTitle";
 import ColoredSpan from "./coloredSpan";
 import HeadingDescription from "./headingDescription";
 
 function ContactForm() {
+    const [status, setStatus] = useState("");
+    const [error, setError] = useState("");
+
+    const handleFormSubmit = async (event : any) => {
+        event.preventDefault();
+        try {
+            setStatus('pending');
+            setError("");
+            const myForm = event.target;
+            const formData = new FormData(myForm);
+            const res = await fetch('/__forms.html', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData.toString())
+            });
+            if (res.status === 200) {
+                setStatus('ok');
+            } else {
+                setStatus('error');
+                setError(`${res.status} ${res.statusText}`);
+            }
+        } catch (e) {
+            setStatus('error');
+            setError(`${e}`);
+        }
+    };
+
   return (
     <div className="grid grid-cols-1 gap-5 place-content-center h-full lg:px-16 px-3">
       <SectionTitle className="lg:text-start text-center">
@@ -16,7 +44,7 @@ function ContactForm() {
         <span className="text-orange">info@e3.ventures</span>
       </HeadingDescription>
 
-      <form className="flex flex-col gap-4" name="contact" method="POST" data-netlify="true">
+      <form className="flex flex-col gap-4" name="contact"  method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="contact" />
 
         <div className="laptop:block hidden">
