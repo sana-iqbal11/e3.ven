@@ -164,8 +164,8 @@ const PhoneField = ({
 }) => {
   // Sample country codes list, you can replace it with your own list
   const countryCodes = [
-    { code: "+966" },
-    { code: "+20" },
+    { code: "+966", name:"+966" },
+    { code: "+20", name:"+20" },
     // Add more country codes as needed
   ];
 
@@ -175,7 +175,7 @@ const PhoneField = ({
         {title}
       </p>
       <div className="flex items-center rounded-lg bg-white">
-        <select id="country_code" onChange={onChange} name="country_code" value={value} className="border-0 bg-transparent  border-themeDarkGreen outline-none rounded-l-lg text-black text-sm">
+        <select id="country_code" onChange={onChange} name="country_code"  className="border-0 bg-transparent  border-themeDarkGreen outline-none rounded-l-lg text-black text-sm">
           {countryCodes.map((country) => (
             <option key={country.code} value={country.code}>
               ({country.code})
