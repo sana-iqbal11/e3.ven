@@ -37,7 +37,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     <div className="grid grid-cols-1 gap-5 place-content-center h-full lg:px-16 px-3">
       <SectionTitle className="lg:text-start text-center">
         <ColoredSpan className="text-white laptop:text-5xl text-3xl">
-          Let’s llevel up your brand, together
+          Let’s level up your brand, together
         </ColoredSpan>
       </SectionTitle>
       <HeadingDescription className="text-[16px] lg:text-start text-center mt-[-28px]">
@@ -60,7 +60,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         <TextField title="Email" placeholder="you@company.com" type="email" name="email" value={formState.email} onChange={handleChange}/>
         <PhoneField title="Phone number" placeholder="Enter Phone Number" name="telephone" value={formState.telephone} onChange={handleChange}/>
         <label
-          htmlFor="message"
+          htmlFor="messages"
           className="laptop:block mb-2 text-sm font-medium text-gray-900 dark:text-white  hidden"
         >
           How can we help?
@@ -174,7 +174,7 @@ const PhoneField = ({
         {title}
       </p>
       <div className="flex items-center rounded-lg bg-white">
-        <select className="border-0 bg-transparent  border-themeDarkGreen outline-none rounded-l-lg text-black text-sm">
+        <select id="country_code" className="border-0 bg-transparent  border-themeDarkGreen outline-none rounded-l-lg text-black text-sm">
           {countryCodes.map((country, index) => (
             <option key={index} value={country.code}>
               ({country.code})
