@@ -46,7 +46,14 @@ function ContactForm() {
 
       <form className="flex flex-col gap-4" name="contact"  onSubmit={handleFormSubmit}>
         <input type="hidden" name="form-name" value="contact" />
+                    <input name="name" type="text" placeholder="Name" required className="input input-bordered" />
+                    <input name="email" type="text" placeholder="Email (optional)" className="input input-bordered" />
+                    <input name="message" type="text" placeholder="Message" required className="input input-bordered" />
+                    <button className="btn btn-primary" type="submit" disabled={status === 'pending'}>
+                        Submit
+                    </button>
 
+{/* 
         <div className="laptop:block hidden">
           <TextField title="Name" placeholder="Your Name" type="text" name="name" />
         </div>
@@ -101,7 +108,7 @@ function ContactForm() {
         >
            Send message
         </button>
-        </div>{" "}
+        </div>{" "} */}
       </form>
     </div>
   );
