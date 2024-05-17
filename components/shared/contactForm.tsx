@@ -1,46 +1,45 @@
-import React from "react";
-import SectionTitle from "./sectionTitle";
-import ColoredSpan from "./coloredSpan";
-import HeadingDescription from "./headingDescription";
+// components/ContactForm.tsx
 
-function ContactForm() {
+import React from 'react';
+
+const ContactForm: React.FC = () => {
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString()
+      });
+      alert('Form successfully submitted');
+    } catch (error) {
+      alert('Form submission error');
+    }
+  };
+
   return (
-    <div className="grid grid-cols-1 gap-5 place-content-center h-full lg:px-16 px-3">
-      <SectionTitle className="lg:text-start text-center">
-        <ColoredSpan className="text-white laptop:text-5xl text-3xl">
-          Let’s level up your brand, together
-        </ColoredSpan>
-      </SectionTitle>
-      <HeadingDescription className="text-[16px] lg:text-start text-center mt-[-28px]">
-        You can reach us anytime via{" "}
-        <span className="text-orange">info@e3.ventures</span>
-      </HeadingDescription>
-      
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="flex gap-7 flex-col">
-        <input type="hidden" name="form-name" value="contact" />
-        <p className="hidden">
-          <label>
-            Don’t fill this out if you’re human: <input name="bot-field" />
-          </label>
-        </p>
-        <p>
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" name="name" required />
-        </p>
-        <p>
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" required />
-        </p>
-        <p>
-          <label htmlFor="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
-    </div>
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" onSubmit={handleSubmit}>
+      <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>Don’t fill this out: <input name="bot-field" /></label>
+      </p>
+      <p>
+        <label>Name: <input type="text" name="name" required /></label>
+      </p>
+      <p>
+        <label>Email: <input type="email" name="email" required /></label>
+      </p>
+      <p>
+        <label>Message: <textarea name="message" required></textarea></label>
+      </p>
+      <p>
+        <button type="submit">Send</button>
+      </p>
+    </form>
   );
-}
+};
 
 export default ContactForm;
