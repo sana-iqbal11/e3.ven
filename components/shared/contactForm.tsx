@@ -44,7 +44,7 @@ function ContactForm() {
         <span className="text-orange">info@e3.ventures</span>
       </HeadingDescription>
 
-      <form className="flex flex-col gap-4" name="contact"  method="POST" data-netlify="true">
+      <form className="flex flex-col gap-4" name="contact"  onSubmit={handleFormSubmit}>
         <input type="hidden" name="form-name" value="contact" />
 
         <div className="laptop:block hidden">
