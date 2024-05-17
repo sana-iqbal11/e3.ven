@@ -1,5 +1,5 @@
 // components/ContactForm.tsx
-
+"use client"
 import React from 'react';
 
 const ContactForm: React.FC = () => {
