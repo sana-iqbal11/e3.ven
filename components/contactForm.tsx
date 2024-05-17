@@ -15,7 +15,7 @@ function ContactForm() {
       setError("error");
       const myForm = event.target;
       const formData = new FormData(myForm);
-      const res = await fetch("/__forms.html", {
+      const res = await fetch("/forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData.toString()),
@@ -31,7 +31,7 @@ function ContactForm() {
       setError(`${e}`);
     }
   };
-
+// code
   return (
     <div className="grid grid-cols-1 gap-5 place-content-center h-full lg:px-16 px-3">
       <SectionTitle className="lg:text-start text-center">
