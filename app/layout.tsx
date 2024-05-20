@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import { Sora } from "next/font/google";
 import Footer from "@/components/base/footer";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const sora = Sora({ subsets: ["latin"] });
 
@@ -18,17 +19,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const router = useRouter();
+
   useEffect(() => {
     const canonicalLink = document.createElement('link');
     canonicalLink.rel = 'canonical';
-    canonicalLink.href = `${window.location.origin}${window.location.pathname}`; // Dynamic URL with pathname
+    canonicalLink.href = `${window.location.origin}${router.asPath}`; // Full dynamic URL with pathname
     document.head.appendChild(canonicalLink);
 
     return () => {
       // Cleanup if necessary
       document.head.removeChild(canonicalLink);
     };
-  }, []);
+  }, [router.asPath]);
 
 
 
