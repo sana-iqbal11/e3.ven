@@ -21,7 +21,7 @@ export default function RootLayout({
   useEffect(() => {
     const canonicalLink = document.createElement('link');
     canonicalLink.rel = 'canonical';
-    canonicalLink.href = window.location.href; // Dynamic URL
+    canonicalLink.href = `${window.location.origin}${window.location.pathname}`; // Dynamic URL with pathname
     document.head.appendChild(canonicalLink);
 
     return () => {
@@ -29,6 +29,7 @@ export default function RootLayout({
       document.head.removeChild(canonicalLink);
     };
   }, []);
+
 
 
   return (
